@@ -1,0 +1,104 @@
+/* ============================================
+   Dashboard Teknisi - Geeko Komputer
+   Tema konsisten dengan index.html & perhitungan.html
+   ============================================ */
+
+/* Status badge (sesuai warna Tailwind yang dipakai di index) */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Warna status menggunakan palet Tailwind (kuning, biru, hijau, dll) */
+.status-diterima {
+    background-color: #e0f2fe;  /* biru-100 */
+    color: #0369a1;             /* biru-700 */
+}
+.status-dicek {
+    background-color: #fef9c3;  /* kuning-100 */
+    color: #854d0e;             /* kuning-800 */
+}
+.status-perbaikan {
+    background-color: #fed7aa;  /* oranye-200 */
+    color: #9a3412;             /* oranye-800 */
+}
+.status-testing {
+    background-color: #d9f99d;  /* hijau-200 */
+    color: #3f6212;             /* hijau-800 */
+}
+.status-selesai {
+    background-color: #bbf7d0;  /* hijau-100 */
+    color: #166534;             /* hijau-700 */
+}
+
+/* Loader (sama dengan yang di perhitungan.css) */
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Modal transisi halus */
+#updateModal {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Tombol dan interaksi (mengikuti warna kuning dari brand) */
+.bg-yellow-500 {
+    background-color: #eab308; /* yellow-500 */
+}
+.bg-yellow-500:hover {
+    background-color: #ca8a04; /* yellow-600 */
+}
+.hover\:bg-yellow-600:hover {
+    background-color: #ca8a04;
+}
+.text-yellow-500 {
+    color: #eab308;
+}
+.text-yellow-400 {
+    color: #facc15;
+}
+.border-yellow-400 {
+    border-color: #facc15;
+}
+.focus\:ring-yellow-400:focus {
+    --tw-ring-color: #facc15;
+}
+
+/* Tabel dan kartu (konsisten dengan shadow & border di index) */
+.bg-white {
+    background-color: #ffffff;
+}
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.hover\:bg-gray-50:hover {
+    background-color: #f9fafb;
+}
+
+/* Utility tambahan untuk tabel responsif */
+.overflow-x-auto {
+    overflow-x: auto;
+}
+.min-w-full {
+    min-width: 100%;
+}
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+    border-top-width: 1px;
+    border-color: #e5e7eb;
+}

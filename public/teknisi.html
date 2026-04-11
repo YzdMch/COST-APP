@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geeko Komputer • Dashboard Teknisi</title>
+
+    <!-- Tailwind (sama dengan file style.css yang sudah ada) -->
+    <link rel="stylesheet" href="./css/teknisi.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS khusus dashboard teknisi -->
+    <link rel="stylesheet" href="./css/teknisi.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Halaman Login (ditampilkan jika belum login) -->
+    <div id="loginSection" class="min-h-screen flex items-center justify-center bg-gray-100">
+        <div class="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full">
+            <div class="text-center mb-6">
+                <img src="./images/logo.png" alt="Geeko" class="h-12 mx-auto mb-3">
+                <h2 class="text-2xl font-bold">Login Teknisi</h2>
+                <p class="text-gray-500 text-sm">Akses khusus untuk teknisi Geeko</p>
+            </div>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Email</label>
+                    <input type="email" id="techEmail" class="w-full border border-gray-300 rounded-xl py-2 px-4 focus:ring-2 focus:ring-yellow-400" placeholder="teknisi@geeko.com" value="admin@geeko.com">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2">Password</label>
+                    <input type="password" id="techPassword" class="w-full border border-gray-300 rounded-xl py-2 px-4 focus:ring-2 focus:ring-yellow-400" placeholder="******" value="password123">
+                </div>
+                <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 rounded-xl transition">Login</button>
+            </form>
+            <p class="text-center text-gray-400 text-xs mt-4">Demo: admin@geeko.com / password123</p>
+        </div>
+    </div>
+
+    <!-- Dashboard (ditampilkan setelah login) -->
+    <div id="dashboardSection" class="hidden">
+        <!-- Header -->
+        <header class="bg-white shadow-md sticky top-0 z-30">
+            <div class="container mx-auto px-5 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <img src="./images/logo.png" alt="Geeko Komputer" class="h-12 md:h-14 object-contain">
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-gray-600"><i class="fas fa-user-cog"></i> Teknisi: <span id="techNameDisplay">Admin</span></span>
+                        <button id="logoutBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-5 py-8">
+            <div class="mb-6">
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-800">Dashboard Teknisi</h1>
+                <p class="text-gray-500">Kelola dan update progres perbaikan pelanggan</p>
+            </div>
+
+            <!-- Daftar Servis -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
+                    <h2 class="font-semibold text-lg"><i class="fas fa-tools text-yellow-500 mr-2"></i> Daftar Servis Aktif</h2>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Kode Servis</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Pelanggan</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Perangkat</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Kerusakan</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="serviceTableBody" class="divide-y divide-gray-200">
+                            <!-- Data akan diisi JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal Update Progres -->
+        <div id="updateModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-xl max-w-lg w-full mx-4 p-6 shadow-2xl">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-800"><i class="fas fa-edit text-yellow-500"></i> Update Progres Servis</h3>
+                    <button id="closeModal" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-2xl"></i></button>
+                </div>
+                <div class="mb-4">
+                    <p><strong>Kode Servis:</strong> <span id="modalTicket" class="font-mono"></span></p>
+                    <p><strong>Pelanggan:</strong> <span id="modalCustomer"></span></p>
+                    <p><strong>Perangkat:</strong> <span id="modalDevice"></span></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Status Perbaikan</label>
+                    <select id="statusSelect" class="w-full border border-gray-300 rounded-xl py-2 px-4 focus:ring-2 focus:ring-yellow-400">
+                        <option value="Diterima">Diterima</option>
+                        <option value="Sedang dicek">Sedang dicek</option>
+                        <option value="Perbaikan">Perbaikan</option>
+                        <option value="Testing">Testing</option>
+                        <option value="Selesai">Selesai</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Catatan Tindakan (opsional)</label>
+                    <textarea id="noteInput" rows="3" class="w-full border border-gray-300 rounded-xl py-2 px-4" placeholder="Contoh: Membersihkan debu, mengganti thermal paste..."></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Upload Foto Progress (opsional)</label>
+                    <input type="file" id="progressPhoto" accept="image/*" class="w-full text-gray-600 border border-gray-200 rounded-lg p-2 bg-gray-50">
+                </div>
+                <div class="flex gap-3 justify-end">
+                    <button id="cancelModal" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100">Batal</button>
+                    <button id="saveUpdate" class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg"><i class="fas fa-save"></i> Simpan Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/teknisi.js"></script>
+</body>
+</html>
