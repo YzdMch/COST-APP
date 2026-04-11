@@ -1,28 +1,27 @@
 /* ============================================
    Login Page - Geeko Komputer
-   Tema konsisten dengan brand
+   Custom CSS tambahan (tema konsisten dengan style.css)
    ============================================ */
 
+/* Background gradien menggunakan warna kuning dari brand (yellow-400 ke yellow-500) */
 body {
-    font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #fef9c3 0%, #fde047 100%);
-    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Card effect */
+/* Card login: bayangan dan border radius sama seperti komponen lain */
 .bg-white {
     background-color: #ffffff;
     border-radius: 1rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* Input focus */
-input:focus {
-    outline: none;
-    ring: 2px solid #facc15;
+/* Header dengan background kuning-400 (sama seperti di perhitungan.html) */
+.bg-yellow-400 {
+    background-color: #facc15;
 }
 
-/* Tombol utama */
+/* Tombol utama menggunakan yellow-500 dan hover yellow-600 */
 .bg-yellow-500 {
     background-color: #eab308;
 }
@@ -38,33 +37,60 @@ input:focus {
 .text-yellow-500 {
     color: #eab308;
 }
+.text-yellow-400 {
+    color: #facc15;
+}
+
+/* Focus ring pada input (sama dengan style.css) */
 .focus\:ring-yellow-400:focus {
     --tw-ring-color: #facc15;
 }
 
-/* Animasi loading pada tombol */
-.btn-loading {
-    pointer-events: none;
-    opacity: 0.7;
+/* Input border merah untuk error (sama dengan style.css) */
+input.border-red-500,
+select.border-red-500,
+textarea.border-red-500 {
+    border-color: #ef4444 !important;
+    border-width: 2px;
 }
-.btn-loading .loader-white {
+
+/* Loading spinner putih (sama seperti loader di perhitungan.css) */
+.loader-white {
     width: 20px;
     height: 20px;
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     border-top: 2px solid transparent;
     border-radius: 50%;
     animation: spin 0.6s linear infinite;
     display: inline-block;
     margin-right: 8px;
 }
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-/* Toast */
+/* Tombol loading state */
+.btn-loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Toast notifikasi (transisi halus) */
 #toast {
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.85);
     font-size: 0.875rem;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Utility tambahan untuk animasi toast */
+.opacity-0 {
+    opacity: 0;
+}
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
 }

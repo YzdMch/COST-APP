@@ -1,7 +1,19 @@
-// ======================== DATA SIMULASI SERVI ========================
+// ======================== CEK SESSION LOGIN ========================
+function checkLoginAndRedirect() {
+    const isLoggedIn = sessionStorage.getItem('user_logged_in');
+    const userRole = sessionStorage.getItem('user_role');
+    if (!isLoggedIn || (userRole !== 'teknisi' && userRole !== 'admin')) {
+        // Belum login atau bukan teknisi, redirect ke halaman login
+        window.location.href = 'login.html';
+    }
+    // Tampilkan nama teknisi
+    const techName = sessionStorage.getItem('user_name') || 'Teknisi';
+    document.getElementById('techNameDisplay').innerText = techName;
+}
+
+// ======================== DATA SERVI (localStorage) ========================
 let services = [];
 
-// Fungsi untuk memuat data dari localStorage (dari halaman perhitungan.html)
 function loadServicesFromLocalStorage() {
     const stored = localStorage.getItem('geeko_services');
     if (stored) {
@@ -58,9 +70,9 @@ function loadServicesFromLocalStorage() {
             createdAt: new Date().toISOString()
         }
     ];
+    saveServicesToLocalStorage(); // simpan dummy ke localStorage
 }
 
-// Simpan ke localStorage
 function saveServicesToLocalStorage() {
     localStorage.setItem('geeko_services', JSON.stringify(services));
 }
@@ -91,16 +103,15 @@ function renderTable() {
             <td class="px-6 py-4">${service.issue}</td>
             <td class="px-6 py-4"><span class="status-badge ${statusClass}">${service.status}</span></td>
             <td class="px-6 py-4">
-                <button onclick="openUpdateModal('${service.id}')" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg text-sm"><i class="fas fa-edit"></i> Update</button>
+                <button onclick="openUpdateModal('${service.id}')" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg text-sm transition"><i class="fas fa-edit"></i> Update</button>
             </td>
         `;
         tbody.appendChild(row);
     });
 }
 
-// Variabel global untuk menyimpan id servis yang sedang diupdate
+// Modal update
 let currentServiceId = null;
-
 window.openUpdateModal = function(serviceId) {
     const service = services.find(s => s.id === serviceId);
     if (!service) return;
@@ -119,7 +130,6 @@ function closeModal() {
     currentServiceId = null;
 }
 
-// Simpan update
 function saveUpdate() {
     if (!currentServiceId) return;
     const service = services.find(s => s.id === currentServiceId);
@@ -129,86 +139,49 @@ function saveUpdate() {
     const newNote = document.getElementById('noteInput').value;
     const photoFile = document.getElementById('progressPhoto').files[0];
 
-    // Simulasi upload foto (hanya nama file saja untuk demo)
     let photoName = service.photoProgress;
     if (photoFile) {
         photoName = `uploads/${Date.now()}_${photoFile.name}`;
-        // Di dunia nyata upload ke server, disini hanya simulasi
+        // Di sini hanya simulasi, tidak benar-benar upload
     }
 
-    // Update data
     service.status = newStatus;
     service.notes = newNote;
     service.photoProgress = photoName;
     service.lastUpdate = new Date().toISOString();
 
-    // Simpan ke localStorage
     saveServicesToLocalStorage();
-
-    // Tampilkan notifikasi sukses sederhana
     alert(`✅ Update berhasil!\nStatus: ${newStatus}\nCatatan: ${newNote || '-'}`);
-
-    // Render ulang tabel
     renderTable();
     closeModal();
 }
 
-// ======================== LOGIN SIMULASI ========================
-function checkLogin() {
-    const isLoggedIn = sessionStorage.getItem('teknisi_logged_in');
-    if (isLoggedIn === 'true') {
-        document.getElementById('loginSection').classList.add('hidden');
-        document.getElementById('dashboardSection').classList.remove('hidden');
-        // Load data
-        loadServicesFromLocalStorage();
-        saveServicesToLocalStorage();
-        renderTable();
-        document.getElementById('techNameDisplay').innerText = sessionStorage.getItem('teknisi_name') || 'Admin';
-    } else {
-        document.getElementById('loginSection').classList.remove('hidden');
-        document.getElementById('dashboardSection').classList.add('hidden');
+// Logout
+function setupLogout() {
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('user_logged_in');
+            sessionStorage.removeItem('user_role');
+            sessionStorage.removeItem('user_name');
+            window.location.href = 'login.html';
+        });
     }
 }
 
-// Event listeners setelah DOM siap
+// Inisialisasi
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const closeModalBtn = document.getElementById('closeModal');
-    const cancelModalBtn = document.getElementById('cancelModal');
-    const saveUpdateBtn = document.getElementById('saveUpdate');
+    checkLoginAndRedirect();
+    loadServicesFromLocalStorage();
+    renderTable();
+    setupLogout();
 
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('techEmail').value;
-        const password = document.getElementById('techPassword').value;
-        // Validasi sederhana (hardcode untuk demo)
-        if (email === 'admin@geeko.com' && password === 'password123') {
-            sessionStorage.setItem('teknisi_logged_in', 'true');
-            sessionStorage.setItem('teknisi_name', 'Admin Geeko');
-            checkLogin();
-        } else {
-            alert('Email atau password salah! (Gunakan admin@geeko.com / password123)');
-        }
-    });
-
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            sessionStorage.removeItem('teknisi_logged_in');
-            sessionStorage.removeItem('teknisi_name');
-            checkLogin();
-        });
-    }
-
-    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if (cancelModalBtn) cancelModalBtn.addEventListener('click', closeModal);
-    if (saveUpdateBtn) saveUpdateBtn.addEventListener('click', saveUpdate);
-
-    // Tutup modal jika klik di luar
+    // Modal event listeners
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    document.getElementById('cancelModal').addEventListener('click', closeModal);
+    document.getElementById('saveUpdate').addEventListener('click', saveUpdate);
     window.addEventListener('click', (e) => {
         const modal = document.getElementById('updateModal');
         if (e.target === modal) closeModal();
     });
-
-    checkLogin();
 });
