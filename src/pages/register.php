@@ -206,6 +206,5 @@
       if (!valid) e.preventDefault();
     });
   </script>
-
 </body>
 </html>
