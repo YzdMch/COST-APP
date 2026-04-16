@@ -174,7 +174,7 @@ $error = $_GET['error'] ?? null;
   </section>
 
   <footer class="bg-gray-900 text-gray-300 py-6 mt-4 text-center text-sm">
-    <p>© 2024 Geeko Komputer. All rights reserved.</p>
+    <p>© <?= date('Y') ?> Geeko Komputer. All rights reserved.</p>
   </footer>
 
   <script>

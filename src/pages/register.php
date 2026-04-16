@@ -32,7 +32,7 @@
     <?php endif; ?>
 
     <div class="p-6 md:p-8">
-      <form id="registerForm" method="POST" action="/COST-APP/src/api/register.php">
+      <form id="registerForm" method="POST" action="/COST-APP/src/api/register-handler.php">
 
         <!-- Nama -->
         <div class="mb-4">

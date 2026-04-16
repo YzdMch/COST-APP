@@ -194,7 +194,7 @@ require_once __DIR__ . '/../../config/db.php';
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-gray-300 py-8 mt-12">
     <div class="container mx-auto px-5 text-center">
-      <p>© 2024 Geeko Komputer. All rights reserved.</p>
+      <p>© <?= date('Y') ?> Geeko Komputer. All rights reserved.</p>
       <p class="mt-2 text-sm">
         <a href="#" class="hover:text-yellow-400">Privacy Policy</a> |
         <a href="#" class="hover:text-yellow-400">Terms of Service</a>
