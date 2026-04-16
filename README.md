@@ -28,7 +28,7 @@ Aplikasi web berbasis PHP + MySQL untuk mengelola estimasi biaya servis komputer
 ---
 
 ## Struktur Database
-[File sql untuk database](https://drive.google.com/file/d/1nbt_qYxQYwJv8LIscBmOqMJ4m1-xJQja/view?usp=drive_link)
+[File sql untuk database](https://drive.google.com/file/d/1k0ePKN-ZVCIOHLO4hUmd-kFHO3TlEEMa/view?usp=sharing)
 
 Database: `cost_db`
 
