@@ -82,9 +82,13 @@ $labelKerusakan = [
               <span class="text-gray-500">Cabang</span>
               <span class="font-semibold text-gray-800" id="konfCabang"></span>
             </div>
-            <div class="flex justify-between">
+            <div class="flex justify-between border-b border-gray-200 pb-2">
               <span class="text-gray-500">Deskripsi</span>
               <span class="font-semibold text-gray-800 text-right max-w-xs" id="konfDeskripsi"></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500">Tanggal Booking</span>
+              <span class="font-semibold text-gray-800"><?= date('d/m/Y H:i') ?></span>
             </div>
           </div>
 

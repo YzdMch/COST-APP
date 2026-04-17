@@ -208,6 +208,19 @@ require_once __DIR__ . '/../../config/db.php';
       document.getElementById('mobileNav').classList.toggle('hidden');
     });
 
+    // Auto-fill nama dari session jika user sudah login
+    window.addEventListener('DOMContentLoaded', function() {
+      <?php if (isset($_SESSION['user_id']) && isset($_SESSION['nama'])) : ?>
+        document.getElementById('nama').value = '<?= htmlspecialchars($_SESSION['nama']) ?>';
+      <?php endif; ?>
+      <?php if (isset($_SESSION['email'])) : ?>
+        document.getElementById('email').value = '<?= htmlspecialchars($_SESSION['email']) ?>';
+      <?php endif; ?>
+      <?php if (isset($_SESSION['no_telepon'])) : ?>
+        document.getElementById('phone').value = '<?= htmlspecialchars($_SESSION['no_telepon']) ?>';
+      <?php endif; ?>
+    });
+
     const labelPerangkat = {
       macbook: 'MacBook Pro / Air',
       windows: 'Windows Laptop',

@@ -140,6 +140,7 @@ $tiketHighlight = $_GET['tiket'] ?? null;
               <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Perangkat</th>
               <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Kerusakan</th>
               <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal</th>
               <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
             </tr>
           </thead>
@@ -165,6 +166,9 @@ $tiketHighlight = $_GET['tiket'] ?? null;
                       <?= htmlspecialchars($s['status']) ?>
                     </span>
                   </td>
+                  <td class="px-4 py-4 text-sm text-gray-700">
+                    <?= date('d M Y H:i', strtotime($s['created_at'])) ?>
+                  </td>
                   <td class="px-4 py-4 text-sm">
                     <div class="flex flex-wrap items-center gap-2" style="min-width: 220px;">
                       <!-- Update status -->
@@ -182,14 +186,6 @@ $tiketHighlight = $_GET['tiket'] ?? null;
                         title="Edit Data">
                         <i class="fas fa-edit"></i>
                         <span>Edit</span>
-                      </button>
-                      <!-- Hapus -->
-                      <button
-                        onclick="openModalHapus(<?= $s['id'] ?>, '<?= htmlspecialchars($s['nomor_tiket']) ?>')"
-                        class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-xs transition inline-flex items-center gap-1 whitespace-nowrap"
-                        title="Hapus Data">
-                        <i class="fas fa-trash"></i>
-                        <span>Hapus</span>
                       </button>
                     </div>
                   </td>
@@ -252,35 +248,6 @@ $tiketHighlight = $_GET['tiket'] ?? null;
     </div>
   </div>
 
-  <!-- ===== MODAL KONFIRMASI HAPUS ===== -->
-  <div id="modalHapus" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden px-4">
-    <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl">
-      <div class="text-center mb-5">
-        <div class="inline-flex items-center justify-center bg-red-100 p-4 rounded-full mb-3">
-          <i class="fas fa-trash text-red-500 text-3xl"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-800">Hapus Data Servis?</h3>
-        <p class="text-gray-500 text-sm mt-2">
-          Anda akan menghapus tiket <strong id="hTiket" class="text-red-600 font-mono"></strong>.
-          <br>Tindakan ini tidak dapat dibatalkan.
-        </p>
-      </div>
-      <form method="POST" action="/COST-APP/src/api/hapus-servis.php">
-        <input type="hidden" name="servis_id" id="hServisId">
-        <div class="flex gap-3 justify-center">
-          <button type="button" onclick="closeModalHapus()"
-            class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition font-semibold">
-            Batal
-          </button>
-          <button type="submit"
-            class="px-6 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition font-semibold">
-            <i class="fas fa-trash mr-1"></i>Ya, Hapus
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-gray-300 py-6 mt-12 text-center text-sm">
     <p>© <?= date('Y') ?> Geeko Komputer. All rights reserved.</p>
@@ -309,19 +276,6 @@ $tiketHighlight = $_GET['tiket'] ?? null;
     }
     document.getElementById('modalUpdate').addEventListener('click', function (e) {
       if (e.target === this) closeModalUpdate();
-    });
-
-    // Modal Hapus
-    function openModalHapus(id, tiket) {
-      document.getElementById('hServisId').value    = id;
-      document.getElementById('hTiket').textContent = tiket;
-      document.getElementById('modalHapus').classList.remove('hidden');
-    }
-    function closeModalHapus() {
-      document.getElementById('modalHapus').classList.add('hidden');
-    }
-    document.getElementById('modalHapus').addEventListener('click', function (e) {
-      if (e.target === this) closeModalHapus();
     });
 
     const highlightTicket = '<?= htmlspecialchars($tiketHighlight) ?>';

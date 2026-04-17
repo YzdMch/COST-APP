@@ -35,7 +35,7 @@ if (!$error && strlen($password) < 6) {
 }
 
 if (!$error) {
-    $stmt = $pdo->prepare('SELECT id, nama, email, password, role FROM users WHERE email = ? LIMIT 1');
+    $stmt = $pdo->prepare('SELECT id, nama, email, password, role, no_telepon FROM users WHERE email = ? LIMIT 1');
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
@@ -55,6 +55,7 @@ session_regenerate_id(true);
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['nama']    = $user['nama'];
 $_SESSION['email']   = $user['email'];
+$_SESSION['no_telepon'] = $user['no_telepon'];
 $_SESSION['role']    = $user['role'];
 
 // Fitur "Ingat saya" — cookie 30 hari
