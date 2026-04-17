@@ -1,0 +1,79 @@
+# Environment variables dan konfigurasi sensitif
+.env
+.env.local
+.env.*.local
+config/db.php
+
+# Node modules
+node_modules/
+npm-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency lock files (optional, uncomment jika perlu)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Log files
+*.log
+logs/
+*.txt
+
+# PHP-specific
+composer.lock
+vendor/
+
+# IDE dan Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.tmproj
+*.tmproject
+
+# Build output (Tailwind CSS)
+public/css/
+dist/
+build/
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Cache
+.cache/
+*.cache
+
+# Session files
+session/
+sessions/
+*.sess
+
+# Upload directories (jika ada)
+# uploads/
+# public/uploads/
+
+# Windows-specific
+desktop.ini
