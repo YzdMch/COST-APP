@@ -1,7 +1,7 @@
 <?php
 
 define('DB_HOST', 'localhost');
-define('DB_PORT', '3366');
+define('DB_PORT', 'DB_PORT');
 define('DB_NAME', 'cost_db');
 define('DB_USER', 'root');
 define('DB_PASS', '');

@@ -41,7 +41,7 @@ $labelKerusakan = [
 ];
 $statusClass = [
     'Diterima'     => 'bg-blue-100 text-blue-700',
-    'Sedang dicek' => 'bg-yellow-100 text-yellow-800',
+    'Sedang dicek' => 'bg-primary-100 text-primary-800',
     'Perbaikan'    => 'bg-orange-100 text-orange-800',
     'Testing'      => 'bg-lime-100 text-lime-700',
     'Selesai'      => 'bg-green-100 text-green-800',
@@ -65,7 +65,7 @@ $proses   = $total - $selesai;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Pelanggan • Geeko Komputer</title>
-  <link rel="stylesheet" href="/COST-APP/dist/css/style.css">
+  <link rel="stylesheet" href="/COST-APP/dist/css/style.css?v=<?= time() ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -92,7 +92,7 @@ $proses   = $total - $selesai;
           <p class="font-bold text-gray-800">Booking berhasil!</p>
           <p class="text-gray-600 text-sm mt-1">
             Nomor tiket Anda:
-            <span class="font-mono font-bold text-yellow-700 text-base">
+            <span class="font-mono font-bold text-primary-700 text-base">
               <?= htmlspecialchars($tiketBaru) ?>
             </span>
           </p>
@@ -107,13 +107,13 @@ $proses   = $total - $selesai;
 
     <!-- Statistik -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-      <div class="bg-white rounded-xl shadow p-4 border-l-4 border-yellow-400">
+      <div class="bg-white rounded-xl shadow p-4 border-l-4 border-primary-400">
         <div class="flex items-center justify-between">
           <div>
             <p class="text-gray-500 text-sm">Total Booking</p>
             <p class="text-2xl font-bold"><?= $total ?></p>
           </div>
-          <i class="fas fa-ticket-alt text-yellow-400 text-3xl"></i>
+          <i class="fas fa-ticket-alt text-primary-400 text-3xl"></i>
         </div>
       </div>
       <div class="bg-white rounded-xl shadow p-4 border-l-4 border-green-400">
@@ -143,7 +143,7 @@ $proses   = $total - $selesai;
         <p class="text-gray-500 text-lg font-semibold">Belum ada booking</p>
         <p class="text-gray-400 text-sm mt-1 mb-6">Mulai booking servis perangkat Anda sekarang.</p>
         <a href="/COST-APP/src/pages/perhitungan.php"
-          class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-xl transition">
+          class="bg-primary-500 hover:bg-primary-600 text-white font-bold px-6 py-3 rounded-xl transition">
           <i class="fas fa-plus mr-2"></i>Booking Sekarang
         </a>
       </div>
@@ -154,7 +154,7 @@ $proses   = $total - $selesai;
 
             <!-- Card header -->
             <div class="bg-gray-50 px-5 py-4 flex items-center justify-between border-b border-gray-100">
-              <span class="font-mono font-bold text-yellow-700 text-sm">
+              <span class="font-mono font-bold text-primary-700 text-sm">
                 <?= htmlspecialchars($servis['nomor_tiket']) ?>
               </span>
               <span class="px-3 py-1 rounded-full text-xs font-semibold <?= $statusClass[$servis['status']] ?? 'bg-gray-100 text-gray-700' ?>">
@@ -179,7 +179,7 @@ $proses   = $total - $selesai;
               </div>
               <div class="flex justify-between">
                 <span class="text-gray-500">Estimasi Biaya</span>
-                <span class="font-bold text-yellow-600">
+                <span class="font-bold text-primary-600">
                   <?= $servis['estimasi_harga']
                       ? 'Rp ' . number_format($servis['estimasi_harga'], 0, ',', '.')
                       : '-' ?>
@@ -196,7 +196,7 @@ $proses   = $total - $selesai;
             <!-- Card footer — lihat detail & riwayat -->
             <div class="px-5 py-3 border-t border-gray-100 flex justify-end">
               <a href="/COST-APP/src/pages/detail-servis.php?id=<?= $servis['id'] ?>"
-                class="text-yellow-600 hover:text-yellow-700 text-sm font-semibold">
+                class="text-primary-600 hover:text-primary-700 text-sm font-semibold">
                 Lihat Detail <i class="fas fa-arrow-right ml-1"></i>
               </a>
             </div>

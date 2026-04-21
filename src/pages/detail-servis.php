@@ -54,7 +54,7 @@ $labelKerusakan = [
 ];
 $statusClass = [
     'Diterima'     => 'bg-blue-100 text-blue-700',
-    'Sedang dicek' => 'bg-yellow-100 text-yellow-800',
+    'Sedang dicek' => 'bg-primary-100 text-primary-800',
     'Perbaikan'    => 'bg-orange-100 text-orange-800',
     'Testing'      => 'bg-lime-100 text-lime-700',
     'Selesai'      => 'bg-green-100 text-green-800',
@@ -66,7 +66,7 @@ $statusClass = [
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detail Servis • Geeko Komputer</title>
-  <link rel="stylesheet" href="/COST-APP/dist/css/style.css">
+  <link rel="stylesheet" href="/COST-APP/dist/css/style.css?v=<?= time() ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -82,12 +82,12 @@ $statusClass = [
       <!-- Info Servis -->
       <div class="bg-white rounded-2xl shadow p-6">
         <h2 class="text-lg font-bold text-gray-800 mb-4">
-          <i class="fas fa-info-circle text-yellow-500 mr-2"></i>Detail Servis
+          <i class="fas fa-info-circle text-primary-500 mr-2"></i>Detail Servis
         </h2>
         <div class="space-y-3 text-sm">
           <div class="flex justify-between border-b border-gray-100 pb-2">
             <span class="text-gray-500">Nomor Tiket</span>
-            <span class="font-mono font-bold text-yellow-700">
+            <span class="font-mono font-bold text-primary-700">
               <?= htmlspecialchars($servis['nomor_tiket']) ?>
             </span>
           </div>
@@ -115,7 +115,7 @@ $statusClass = [
           </div>
           <div class="flex justify-between border-b border-gray-100 pb-2">
             <span class="text-gray-500">Estimasi Biaya</span>
-            <span class="font-bold text-yellow-600">
+            <span class="font-bold text-primary-600">
               <?= $servis['estimasi_harga']
                   ? 'Rp ' . number_format($servis['estimasi_harga'], 0, ',', '.')
                   : 'Menunggu pengecekan' ?>
@@ -139,7 +139,7 @@ $statusClass = [
       <!-- Riwayat Status -->
       <div class="bg-white rounded-2xl shadow p-6">
         <h2 class="text-lg font-bold text-gray-800 mb-4">
-          <i class="fas fa-history text-yellow-500 mr-2"></i>Riwayat Update
+          <i class="fas fa-history text-primary-500 mr-2"></i>Riwayat Update
         </h2>
 
         <?php if (empty($logs)) : ?>
@@ -154,7 +154,7 @@ $statusClass = [
                 <div class="flex gap-4 relative">
                   <!-- Dot -->
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 z-10
-                    <?= $log['status'] === 'Selesai' ? 'bg-green-500' : 'bg-yellow-400' ?>">
+                    <?= $log['status'] === 'Selesai' ? 'bg-green-500' : 'bg-primary-400' ?>">
                     <i class="fas fa-circle text-white text-xs"></i>
                   </div>
                   <!-- Konten -->

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login • Geeko Komputer</title>
-  <link rel="stylesheet" href="../../dist/css/style.css">
+  <link rel="stylesheet" href="../../dist/css/style.css?v=<?= time() ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
   <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
 
     <!-- Header -->
-    <div class="bg-yellow-400 py-5 text-center">
+    <div class="bg-primary-400 py-5 text-center">
       <img src="../../public/images/logo.png" alt="Geeko Komputer" class="h-10 mx-auto mb-2">
       <h1 class="text-xl font-bold text-gray-800">Selamat Datang Kembali</h1>
       <p class="text-gray-700 text-xs">Login ke akun Geeko Anda</p>
@@ -40,7 +40,7 @@
               placeholder="nama@example.com"
               autocomplete="email"
               value="<?= htmlspecialchars($old_email ?? '') ?>"
-              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
             >
           </div>
           <div id="emailError" class="text-red-500 text-sm mt-1 hidden"></div>
@@ -57,7 +57,7 @@
               id="password"
               placeholder="••••••••"
               autocomplete="current-password"
-              class="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+              class="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
             >
             <button
               type="button"
@@ -73,16 +73,16 @@
         <!-- Remember & Forgot -->
         <div class="flex items-center justify-between mb-6">
           <label class="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" name="remember" id="remember" class="w-4 h-4 accent-yellow-500 border-gray-300 rounded">
+            <input type="checkbox" name="remember" id="remember" class="w-4 h-4 accent-primary-500 border-gray-300 rounded">
             <span class="text-sm text-gray-600">Ingat saya</span>
           </label>
-          <a href="#" class="text-sm text-yellow-600 hover:text-yellow-700 hover:underline">Lupa password?</a>
+          <a href="#" class="text-sm text-primary-600 hover:text-primary-700 hover:underline">Lupa password?</a>
         </div>
 
         <!-- Submit -->
         <button
           type="submit"
-          class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2"
+          class="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2"
         >
           <span>Login</span>
           <i class="fas fa-arrow-right"></i>
@@ -94,7 +94,7 @@
       <div class="mt-6 text-center">
         <p class="text-gray-600">
           Belum punya akun?
-          <a href="register.php" class="text-yellow-600 font-semibold hover:underline">Daftar sekarang</a>
+          <a href="register.php" class="text-primary-600 font-semibold hover:underline">Daftar sekarang</a>
         </p>
       </div>
 

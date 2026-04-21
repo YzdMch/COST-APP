@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Akun • Geeko Komputer</title>
-  <link rel="stylesheet" href="/COST-APP/dist/css/style.css">
+  <link rel="stylesheet" href="/COST-APP/dist/css/style.css?v=<?= time() ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
   <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
 
     <!-- Header -->
-    <div class="bg-yellow-400 py-5 text-center">
+    <div class="bg-primary-400 py-5 text-center">
       <img src="/COST-APP/public/images/logo.png" alt="Geeko Komputer" class="h-10 mx-auto mb-2">
       <h1 class="text-xl font-bold text-gray-800">Buat Akun Baru</h1>
       <p class="text-gray-700 text-xs">Daftar untuk mulai booking servis</p>
@@ -45,7 +45,7 @@
               id="nama"
               placeholder="Contoh: John Doe"
               value="<?= htmlspecialchars($old['nama'] ?? '') ?>"
-              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
             >
           </div>
           <div id="namaError" class="text-red-500 text-sm mt-1 hidden"></div>
@@ -62,7 +62,7 @@
               id="email"
               placeholder="john@example.com"
               value="<?= htmlspecialchars($old['email'] ?? '') ?>"
-              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
             >
           </div>
           <div id="emailError" class="text-red-500 text-sm mt-1 hidden"></div>
@@ -79,7 +79,7 @@
               id="no_telepon"
               placeholder="08123456789"
               value="<?= htmlspecialchars($old['no_telepon'] ?? '') ?>"
-              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
             >
           </div>
           <div id="teleponError" class="text-red-500 text-sm mt-1 hidden"></div>
@@ -95,7 +95,7 @@
               name="password"
               id="password"
               placeholder="Minimal 6 karakter"
-              class="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+              class="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
             >
             <button type="button" id="togglePassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
               <i class="fas fa-eye"></i>
@@ -114,7 +114,7 @@
               name="konfirmasi_password"
               id="konfirmasi_password"
               placeholder="Ulangi password"
-              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
             >
           </div>
           <div id="konfirmasiError" class="text-red-500 text-sm mt-1 hidden"></div>
@@ -123,7 +123,7 @@
         <!-- Submit -->
         <button
           type="submit"
-          class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2"
+          class="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2"
         >
           <span>Daftar Sekarang</span>
           <i class="fas fa-arrow-right"></i>
@@ -135,7 +135,7 @@
       <div class="mt-6 text-center">
         <p class="text-gray-600">
           Sudah punya akun?
-          <a href="/COST-APP/src/pages/login.php" class="text-yellow-600 font-semibold hover:underline">Login di sini</a>
+          <a href="/COST-APP/src/pages/login.php" class="text-primary-600 font-semibold hover:underline">Login di sini</a>
         </p>
       </div>
     </div>

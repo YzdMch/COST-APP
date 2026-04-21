@@ -35,7 +35,7 @@ $labelKerusakan = [
 ];
 $statusClass = [
     'Diterima'     => 'bg-blue-100 text-blue-700',
-    'Sedang dicek' => 'bg-yellow-100 text-yellow-800',
+    'Sedang dicek' => 'bg-primary-100 text-primary-800',
     'Perbaikan'    => 'bg-orange-100 text-orange-800',
     'Testing'      => 'bg-lime-100 text-lime-700',
     'Selesai'      => 'bg-green-100 text-green-800',
@@ -51,7 +51,7 @@ $tiketHighlight = $_GET['tiket'] ?? null;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Teknisi • Geeko Komputer</title>
-  <link rel="stylesheet" href="/COST-APP/dist/css/style.css">
+  <link rel="stylesheet" href="/COST-APP/dist/css/style.css?v=<?= time() ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -86,13 +86,13 @@ $tiketHighlight = $_GET['tiket'] ?? null;
 
     <!-- Statistik -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-      <div class="bg-white rounded-xl shadow p-4 border-l-4 border-yellow-400">
+      <div class="bg-white rounded-xl shadow p-4 border-l-4 border-primary-400">
         <div class="flex items-center justify-between">
           <div>
             <p class="text-gray-500 text-sm">Total Servis</p>
             <p class="text-2xl font-bold"><?= $totalServis ?></p>
           </div>
-          <i class="fas fa-tools text-yellow-400 text-3xl"></i>
+          <i class="fas fa-tools text-primary-400 text-3xl"></i>
         </div>
       </div>
       <div class="bg-white rounded-xl shadow p-4 border-l-4 border-green-400">
@@ -119,10 +119,10 @@ $tiketHighlight = $_GET['tiket'] ?? null;
     <div class="bg-white rounded-xl shadow-lg overflow-hidden">
       <div class="px-6 py-4 border-b border-gray-200 bg-gray-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <h2 class="font-semibold text-lg">
-          <i class="fas fa-list text-yellow-500 mr-2"></i>Daftar Servis Aktif
+          <i class="fas fa-list text-primary-500 mr-2"></i>Daftar Servis Aktif
         </h2>
         <!-- Filter status -->
-        <select id="filterStatus" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400">
+        <select id="filterStatus" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400">
           <option value="">Semua Status</option>
           <option value="Diterima">Diterima</option>
           <option value="Sedang dicek">Sedang dicek</option>
@@ -154,7 +154,7 @@ $tiketHighlight = $_GET['tiket'] ?? null;
             <?php else : ?>
               <?php foreach ($semuaServis as $s) : ?>
                 <tr class="hover:bg-gray-50 transition servis-row" data-status="<?= htmlspecialchars($s['status']) ?>" data-tiket="<?= htmlspecialchars($s['nomor_tiket']) ?>">
-                  <td class="px-4 py-4 font-mono text-sm text-yellow-700 font-semibold">
+                  <td class="px-4 py-4 font-mono text-sm text-primary-700 font-semibold">
                     <?= htmlspecialchars($s['nomor_tiket']) ?>
                   </td>
                   <td class="px-4 py-4 text-sm"><?= htmlspecialchars($s['nama_pelanggan']) ?></td>
@@ -170,7 +170,7 @@ $tiketHighlight = $_GET['tiket'] ?? null;
                       <!-- Update status -->
                       <button
                         onclick="openModalUpdate(<?= $s['id'] ?>, '<?= htmlspecialchars($s['nomor_tiket']) ?>', '<?= htmlspecialchars($s['nama_pelanggan']) ?>', '<?= htmlspecialchars($labelPerangkat[$s['perangkat']] ?? $s['perangkat']) ?>', '<?= htmlspecialchars($s['status']) ?>')"
-                        class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg text-xs transition inline-flex items-center gap-1 whitespace-nowrap"
+                        class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded-lg text-xs transition inline-flex items-center gap-1 whitespace-nowrap"
                         title="Update Status">
                         <i class="fas fa-sync-alt"></i>
                         <span>Update</span>
@@ -207,14 +207,14 @@ $tiketHighlight = $_GET['tiket'] ?? null;
     <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-2xl">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-xl font-bold text-gray-800">
-          <i class="fas fa-sync-alt text-yellow-500 mr-2"></i>Update Progres Servis
+          <i class="fas fa-sync-alt text-primary-500 mr-2"></i>Update Progres Servis
         </h3>
         <button onclick="closeModalUpdate()" class="text-gray-400 hover:text-gray-600">
           <i class="fas fa-times text-xl"></i>
         </button>
       </div>
       <div class="mb-4 space-y-1 text-sm bg-gray-50 rounded-lg p-3">
-        <p><strong>Kode:</strong> <span id="uTiket" class="font-mono text-yellow-700"></span></p>
+        <p><strong>Kode:</strong> <span id="uTiket" class="font-mono text-primary-700"></span></p>
         <p><strong>Pelanggan:</strong> <span id="uPelanggan"></span></p>
         <p><strong>Perangkat:</strong> <span id="uPerangkat"></span></p>
       </div>
@@ -222,7 +222,7 @@ $tiketHighlight = $_GET['tiket'] ?? null;
         <input type="hidden" name="servis_id" id="uServisId">
         <div class="mb-4">
           <label class="block text-gray-700 font-semibold mb-2">Status Perbaikan</label>
-          <select name="status" id="uStatus" class="w-full border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+          <select name="status" id="uStatus" class="w-full border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400">
             <option value="Diterima">Diterima</option>
             <option value="Sedang dicek">Sedang dicek</option>
             <option value="Perbaikan">Perbaikan</option>
@@ -233,7 +233,7 @@ $tiketHighlight = $_GET['tiket'] ?? null;
         <div class="mb-4">
           <label class="block text-gray-700 font-semibold mb-2">Catatan Tindakan</label>
           <textarea name="catatan" rows="3" placeholder="Contoh: Ganti LCD, bersihkan debu..."
-            class="w-full border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+            class="w-full border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400"></textarea>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-semibold mb-2">Upload Foto (opsional)</label>
@@ -244,7 +244,7 @@ $tiketHighlight = $_GET['tiket'] ?? null;
           <button type="button" onclick="closeModalUpdate()"
             class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition">Batal</button>
           <button type="submit"
-            class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition">
+            class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition">
             <i class="fas fa-save mr-1"></i>Simpan
           </button>
         </div>
@@ -328,7 +328,7 @@ $tiketHighlight = $_GET['tiket'] ?? null;
     if (highlightTicket) {
       const targetRow = document.querySelector(`.servis-row[data-tiket="${highlightTicket}"]`);
       if (targetRow) {
-        targetRow.classList.add('bg-yellow-50', 'border-l-4', 'border-yellow-400');
+        targetRow.classList.add('bg-primary-50', 'border-l-4', 'border-primary-400');
         targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }

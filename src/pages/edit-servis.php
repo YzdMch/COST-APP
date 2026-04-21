@@ -31,7 +31,7 @@ $error = $_GET['error'] ?? null;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Servis • Geeko Komputer</title>
-  <link rel="stylesheet" href="/COST-APP/dist/css/style.css">
+  <link rel="stylesheet" href="/COST-APP/dist/css/style.css?v=<?= time() ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -53,7 +53,7 @@ $error = $_GET['error'] ?? null;
             <div>
               <h1 class="text-2xl font-extrabold text-gray-800">Edit Data Servis</h1>
               <p class="text-gray-500 text-sm">
-                Tiket: <span class="font-mono text-yellow-700"><?= htmlspecialchars($servis['nomor_tiket']) ?></span>
+                Tiket: <span class="font-mono text-primary-700"><?= htmlspecialchars($servis['nomor_tiket']) ?></span>
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ $error = $_GET['error'] ?? null;
                 <label class="block text-gray-700 font-semibold mb-2">Nama Pelanggan <span class="text-red-500">*</span></label>
                 <input type="text" name="nama_pelanggan" id="nama_pelanggan"
                   value="<?= htmlspecialchars($servis['nama_pelanggan']) ?>"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400 transition">
                 <div id="namaError" class="text-red-500 text-sm mt-1 hidden"></div>
               </div>
 
@@ -83,7 +83,7 @@ $error = $_GET['error'] ?? null;
                 <label class="block text-gray-700 font-semibold mb-2">Email <span class="text-red-500">*</span></label>
                 <input type="email" name="email" id="email"
                   value="<?= htmlspecialchars($servis['email']) ?>"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400 transition">
                 <div id="emailError" class="text-red-500 text-sm mt-1 hidden"></div>
               </div>
 
@@ -92,7 +92,7 @@ $error = $_GET['error'] ?? null;
                 <label class="block text-gray-700 font-semibold mb-2">No. Telepon <span class="text-red-500">*</span></label>
                 <input type="tel" name="no_telepon" id="no_telepon"
                   value="<?= htmlspecialchars($servis['no_telepon']) ?>"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400 transition">
                 <div id="teleponError" class="text-red-500 text-sm mt-1 hidden"></div>
               </div>
 
@@ -100,7 +100,7 @@ $error = $_GET['error'] ?? null;
               <div>
                 <label class="block text-gray-700 font-semibold mb-2">Perangkat <span class="text-red-500">*</span></label>
                 <select name="perangkat" id="perangkat"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary-400">
                   <option value="macbook" <?= $servis['perangkat'] === 'macbook' ? 'selected' : '' ?>>MacBook Pro / Air</option>
                   <option value="windows" <?= $servis['perangkat'] === 'windows' ? 'selected' : '' ?>>Windows Laptop</option>
                   <option value="pc"      <?= $servis['perangkat'] === 'pc'      ? 'selected' : '' ?>>Desktop PC</option>
@@ -113,7 +113,7 @@ $error = $_GET['error'] ?? null;
               <div>
                 <label class="block text-gray-700 font-semibold mb-2">Jenis Kerusakan <span class="text-red-500">*</span></label>
                 <select name="jenis_kerusakan" id="jenis_kerusakan"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary-400">
                   <option value="lcd"     <?= $servis['jenis_kerusakan'] === 'lcd'     ? 'selected' : '' ?>>Layar Pecah / LCD Rusak</option>
                   <option value="battery" <?= $servis['jenis_kerusakan'] === 'battery' ? 'selected' : '' ?>>Baterai Kembang / Drop</option>
                   <option value="ssd"     <?= $servis['jenis_kerusakan'] === 'ssd'     ? 'selected' : '' ?>>Upgrade SSD</option>
@@ -126,7 +126,7 @@ $error = $_GET['error'] ?? null;
               <div>
                 <label class="block text-gray-700 font-semibold mb-2">Status</label>
                 <select name="status"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary-400">
                   <option value="Diterima"     <?= $servis['status'] === 'Diterima'     ? 'selected' : '' ?>>Diterima</option>
                   <option value="Sedang dicek" <?= $servis['status'] === 'Sedang dicek' ? 'selected' : '' ?>>Sedang dicek</option>
                   <option value="Perbaikan"    <?= $servis['status'] === 'Perbaikan'    ? 'selected' : '' ?>>Perbaikan</option>
@@ -141,14 +141,14 @@ $error = $_GET['error'] ?? null;
                 <input type="number" name="estimasi_harga"
                   value="<?= htmlspecialchars($servis['estimasi_harga'] ?? '') ?>"
                   placeholder="Contoh: 1500000"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400 transition">
               </div>
 
               <!-- Deskripsi -->
               <div class="md:col-span-2">
                 <label class="block text-gray-700 font-semibold mb-2">Deskripsi Keluhan <span class="text-red-500">*</span></label>
                 <textarea name="deskripsi" id="deskripsi" rows="3"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400"
                   ><?= htmlspecialchars($servis['deskripsi']) ?></textarea>
                 <div id="deskripsiError" class="text-red-500 text-sm mt-1 hidden"></div>
               </div>
@@ -162,7 +162,7 @@ $error = $_GET['error'] ?? null;
                 Batal
               </a>
               <button type="submit"
-                class="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-xl transition">
+                class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl transition">
                 <i class="fas fa-save mr-2"></i>Simpan Perubahan
               </button>
             </div>

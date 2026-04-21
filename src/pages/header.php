@@ -22,11 +22,11 @@ $dashboardUrl = $role === 'teknisi'
     <!-- Nav desktop -->
     <nav class="hidden md:block">
       <ul class="flex gap-6 font-medium text-gray-700">
-        <li><a href="/COST-APP/src/pages/index.php"            class="hover:text-yellow-500 transition">Home</a></li>
-        <li><a href="/COST-APP/src/pages/index.php#services"   class="hover:text-yellow-500 transition">Layanan</a></li>
-        <li><a href="/COST-APP/src/pages/index.php#why"        class="hover:text-yellow-500 transition">Mengapa Kami</a></li>
-        <li><a href="/COST-APP/src/pages/index.php#developer"  class="hover:text-yellow-500 transition">Developer</a></li>
-        <li><a href="/COST-APP/src/pages/index.php#contact"    class="hover:text-yellow-500 transition">Kontak</a></li>
+        <li><a href="/COST-APP/src/pages/index.php"            class="hover:text-primary-500 transition">Home</a></li>
+        <li><a href="/COST-APP/src/pages/index.php#services"   class="hover:text-primary-500 transition">Layanan</a></li>
+        <li><a href="/COST-APP/src/pages/index.php#why"        class="hover:text-primary-500 transition">Mengapa Kami</a></li>
+        <li><a href="/COST-APP/src/pages/index.php#developer"  class="hover:text-primary-500 transition">Developer</a></li>
+        <li><a href="/COST-APP/src/pages/index.php#contact"    class="hover:text-primary-500 transition">Kontak</a></li>
       </ul>
     </nav>
 
@@ -34,11 +34,11 @@ $dashboardUrl = $role === 'teknisi'
     <div class="flex items-center gap-3 flex-wrap">
       <?php if ($sudahLogin) : ?>
         <span class="text-sm text-gray-600">
-          <i class="fas fa-user text-yellow-500 mr-1"></i>
+          <i class="fas fa-user text-primary-500 mr-1"></i>
           <?= htmlspecialchars($namaUser) ?>
         </span>
         <a href="<?= $dashboardUrl ?>"
-          class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">
+          class="bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">
           <i class="fas fa-th-large mr-1"></i> Dashboard
         </a>
         <a href="/COST-APP/src/api/logout.php"
@@ -51,7 +51,7 @@ $dashboardUrl = $role === 'teknisi'
           Login
         </a>
         <a href="/COST-APP/src/pages/register.php"
-          class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">
+          class="bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">
           Daftar
         </a>
       <?php endif; ?>
@@ -67,16 +67,16 @@ $dashboardUrl = $role === 'teknisi'
   <!-- Mobile menu -->
   <div id="mobileNav" class="hidden md:hidden border-t border-gray-100 px-4 py-4">
     <ul class="flex flex-col gap-3 text-gray-700 font-medium mb-4">
-      <li><a href="/COST-APP/src/pages/index.php"           class="block hover:text-yellow-500 transition">Home</a></li>
-      <li><a href="/COST-APP/src/pages/index.php#services"  class="block hover:text-yellow-500 transition">Layanan</a></li>
-      <li><a href="/COST-APP/src/pages/index.php#why"       class="block hover:text-yellow-500 transition">Mengapa Kami</a></li>
-      <li><a href="/COST-APP/src/pages/index.php#developer" class="block hover:text-yellow-500 transition">Developer</a></li>
-      <li><a href="/COST-APP/src/pages/index.php#contact"   class="block hover:text-yellow-500 transition">Kontak</a></li>
+      <li><a href="/COST-APP/src/pages/index.php"           class="block hover:text-primary-500 transition">Home</a></li>
+      <li><a href="/COST-APP/src/pages/index.php#services"  class="block hover:text-primary-500 transition">Layanan</a></li>
+      <li><a href="/COST-APP/src/pages/index.php#why"       class="block hover:text-primary-500 transition">Mengapa Kami</a></li>
+      <li><a href="/COST-APP/src/pages/index.php#developer" class="block hover:text-primary-500 transition">Developer</a></li>
+      <li><a href="/COST-APP/src/pages/index.php#contact"   class="block hover:text-primary-500 transition">Kontak</a></li>
     </ul>
     <div class="flex flex-col gap-2 border-t border-gray-100 pt-3">
       <?php if ($sudahLogin) : ?>
         <a href="<?= $dashboardUrl ?>"
-          class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold px-4 py-2 rounded-lg text-center transition">
+          class="bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-4 py-2 rounded-lg text-center transition">
           <i class="fas fa-th-large mr-1"></i> Dashboard
         </a>
         <a href="/COST-APP/src/api/logout.php"
@@ -89,7 +89,7 @@ $dashboardUrl = $role === 'teknisi'
           Login
         </a>
         <a href="/COST-APP/src/pages/register.php"
-          class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold px-4 py-2 rounded-lg text-center transition">
+          class="bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-4 py-2 rounded-lg text-center transition">
           Daftar
         </a>
       <?php endif; ?>

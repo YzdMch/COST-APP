@@ -8,7 +8,7 @@ require_once __DIR__ . '/../../config/db.php';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Geeko Komputer • Form Estimasi Harga</title>
-  <link rel="stylesheet" href="/COST-APP/dist/css/style.css" />
+  <link rel="stylesheet" href="/COST-APP/dist/css/style.css?v=<?= time() ?>" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
 </head>
@@ -25,8 +25,8 @@ require_once __DIR__ . '/../../config/db.php';
 
           <!-- Heading -->
           <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center bg-yellow-100 p-3 rounded-full mb-4">
-              <i class="fas fa-calculator text-yellow-600 text-3xl"></i>
+            <div class="inline-flex items-center justify-center bg-primary-100 p-3 rounded-full mb-4">
+              <i class="fas fa-calculator text-primary-600 text-3xl"></i>
             </div>
             <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800">Form Estimasi Biaya</h1>
             <p class="text-gray-500 mt-2 max-w-xl mx-auto">
@@ -43,7 +43,7 @@ require_once __DIR__ . '/../../config/db.php';
               <div class="md:col-span-2" id="group-nama">
                 <label class="block text-gray-700 font-semibold mb-2">Nama Lengkap <span class="text-red-500">*</span></label>
                 <input type="text" id="nama" placeholder="Contoh: John Doe"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition" />
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400 transition" />
                 <div class="error-msg text-red-500 text-sm mt-1 hidden">Nama harus diisi</div>
               </div>
 
@@ -51,7 +51,7 @@ require_once __DIR__ . '/../../config/db.php';
               <div id="group-email">
                 <label class="block text-gray-700 font-semibold mb-2">Email <span class="text-red-500">*</span></label>
                 <input type="email" id="email" placeholder="john@example.com"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition" />
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400 transition" />
                 <div class="error-msg text-red-500 text-sm mt-1 hidden">Email tidak valid</div>
               </div>
 
@@ -59,7 +59,7 @@ require_once __DIR__ . '/../../config/db.php';
               <div id="group-phone">
                 <label class="block text-gray-700 font-semibold mb-2">No. Telepon <span class="text-red-500">*</span></label>
                 <input type="tel" id="phone" placeholder="08123456789"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition" />
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400 transition" />
                 <div class="error-msg text-red-500 text-sm mt-1 hidden">Nomor telepon harus diisi</div>
               </div>
 
@@ -67,7 +67,7 @@ require_once __DIR__ . '/../../config/db.php';
               <div id="group-device">
                 <label class="block text-gray-700 font-semibold mb-2">Perangkat <span class="text-red-500">*</span></label>
                 <select id="device"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary-400">
                   <option value="">Pilih Perangkat</option>
                   <option value="macbook">MacBook Pro / Air</option>
                   <option value="windows">Windows Laptop</option>
@@ -82,7 +82,7 @@ require_once __DIR__ . '/../../config/db.php';
               <div id="group-issue">
                 <label class="block text-gray-700 font-semibold mb-2">Jenis Kerusakan <span class="text-red-500">*</span></label>
                 <select id="issue"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary-400">
                   <option value="">Pilih Kerusakan</option>
                   <option value="lcd">Layar Pecah / LCD Rusak</option>
                   <option value="battery">Baterai Kembang / Drop</option>
@@ -97,7 +97,7 @@ require_once __DIR__ . '/../../config/db.php';
               <div id="group-branch" class="md:col-span-2">
                 <label class="block text-gray-700 font-semibold mb-2">Cabang Terdekat <span class="text-red-500">*</span></label>
                 <select id="branch"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 bg-white focus:outline-none focus:ring-2 focus:ring-primary-400">
                   <option value="">Pilih Cabang</option>
                   <option value="surabaya">Surabaya</option>
                 </select>
@@ -109,7 +109,7 @@ require_once __DIR__ . '/../../config/db.php';
                 <label class="block text-gray-700 font-semibold mb-2">Deskripsi Keluhan <span class="text-red-500">*</span></label>
                 <textarea id="description" rows="3"
                   placeholder="Jelaskan detail kerusakan... (contoh: layar muncul garis, baterai cepat habis)"
-                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                  class="w-full border border-gray-300 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-primary-400"></textarea>
                 <div class="error-msg text-red-500 text-sm mt-1 hidden">Deskripsi harus diisi</div>
               </div>
 
@@ -125,7 +125,7 @@ require_once __DIR__ . '/../../config/db.php';
             <!-- Submit -->
             <div class="mt-8 text-center">
               <button type="submit" id="submitBtn"
-                class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-xl shadow-md transition duration-200 flex items-center justify-center gap-3 w-full md:w-auto md:mx-auto text-lg">
+                class="bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-8 rounded-xl shadow-md transition duration-200 flex items-center justify-center gap-3 w-full md:w-auto md:mx-auto text-lg">
                 <span>Hitung Estimasi</span>
                 <i class="fas fa-calculator"></i>
               </button>
@@ -143,7 +143,7 @@ require_once __DIR__ . '/../../config/db.php';
     <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden">
 
       <!-- Header popup -->
-      <div class="bg-yellow-400 px-6 py-4 flex items-center gap-3">
+      <div class="bg-primary-400 px-6 py-4 flex items-center gap-3">
         <i class="fas fa-file-invoice-dollar text-gray-800 text-2xl"></i>
         <h3 class="text-xl font-bold text-gray-800">Hasil Estimasi Biaya</h3>
       </div>
@@ -172,7 +172,7 @@ require_once __DIR__ . '/../../config/db.php';
         <!-- Harga estimasi -->
         <div class="text-center mb-5">
           <p class="text-gray-500 text-sm mb-1">Estimasi Biaya Sementara</p>
-          <p class="text-3xl font-extrabold text-yellow-600" id="popupHarga"></p>
+          <p class="text-3xl font-extrabold text-primary-600" id="popupHarga"></p>
           <p class="text-xs text-gray-400 mt-1">*Harga final ditentukan setelah pengecekan teknisi</p>
         </div>
 
@@ -183,7 +183,7 @@ require_once __DIR__ . '/../../config/db.php';
             <i class="fas fa-times mr-2"></i>Keluar
           </button>
           <button onclick="lanjutBooking()"
-            class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl transition">
+            class="flex-1 bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 rounded-xl transition">
             <i class="fas fa-calendar-check mr-2"></i>Booking Sekarang
           </button>
         </div>
@@ -196,8 +196,8 @@ require_once __DIR__ . '/../../config/db.php';
     <div class="container mx-auto px-5 text-center">
       <p>© <?= date('Y') ?> Geeko Komputer. All rights reserved.</p>
       <p class="mt-2 text-sm">
-        <a href="#" class="hover:text-yellow-400">Privacy Policy</a> |
-        <a href="#" class="hover:text-yellow-400">Terms of Service</a>
+        <a href="#" class="hover:text-primary-400">Privacy Policy</a> |
+        <a href="#" class="hover:text-primary-400">Terms of Service</a>
       </p>
     </div>
   </footer>

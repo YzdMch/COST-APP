@@ -33,7 +33,7 @@ $labelKerusakan = [
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konfirmasi Booking • Geeko Komputer</title>
-  <link rel="stylesheet" href="/COST-APP/dist/css/style.css">
+  <link rel="stylesheet" href="/COST-APP/dist/css/style.css?v=<?= time() ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -49,8 +49,8 @@ $labelKerusakan = [
 
           <!-- Heading -->
           <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center bg-yellow-100 p-3 rounded-full mb-4">
-              <i class="fas fa-calendar-check text-yellow-600 text-3xl"></i>
+            <div class="inline-flex items-center justify-center bg-primary-100 p-3 rounded-full mb-4">
+              <i class="fas fa-calendar-check text-primary-600 text-3xl"></i>
             </div>
             <h1 class="text-3xl font-extrabold text-gray-800">Konfirmasi Booking</h1>
             <p class="text-gray-500 mt-2">Periksa kembali detail servis Anda sebelum melanjutkan</p>
@@ -104,7 +104,7 @@ $labelKerusakan = [
                 <i class="fas fa-arrow-left mr-2"></i>Kembali
               </a>
               <button type="submit"
-                class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl transition">
+                class="flex-1 bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 rounded-xl transition">
                 <i class="fas fa-check mr-2"></i>Konfirmasi Booking
               </button>
             </div>
