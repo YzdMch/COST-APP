@@ -2,7 +2,7 @@
 .env
 .env.local
 .env.*.local
-config/db.php
+
 
 # Node modules
 node_modules/
